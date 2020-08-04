@@ -1,0 +1,15 @@
+<div class="container users-dashboard-container">
+    <h3>Ingelogd als...</h3>
+    <div *ngIf="meLoader.data$ | async as userInfo; else userNotLoaded">
+        <span *ngIf="(!userInfo.isError); else error ">{{userInfo.data?.userId}}, {{userInfo.data?.user.UserName}}, {{userInfo.data?.user.Email}}</span>
+        <ng-template #error>
+            <span>Foutcode: {{userInfo.errorCode}} ({{userInfo.errorMessage}})</span>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #userNotLoaded>
+    <div *ngIf="meLoader.error$ | async as error; else loading">
+        <span>Foutcode: {{error.status}}</span>
+    </div>
+</ng-template>

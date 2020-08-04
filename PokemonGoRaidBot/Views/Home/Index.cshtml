@@ -1,0 +1,19 @@
+@page
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pokémon Go Raid Bot</title>
+    @Html.Raw(RaidBot.Utils.AngularIntegrationUtils.ExtractStyleIncludesForCurrentLanguage(ViewBag.Environment, ViewBag.Path))
+</head>
+<body>
+    <app-root></app-root>
+    @Html.Raw(RaidBot.Utils.AngularIntegrationUtils.ExtractScriptIncludesForCurrentLanguage(ViewBag.Environment, ViewBag.Path))
+</body>
+</html>

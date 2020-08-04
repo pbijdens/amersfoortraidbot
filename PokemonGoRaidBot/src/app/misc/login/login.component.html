@@ -1,0 +1,33 @@
+<div class="container login-container">
+    <div class="jumbotron">
+        <h2>Aanmelden</h2>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <div *ngIf="busy" class="alert alert-info"><span class="fa fa-spin fa-spinner"></span> Bezig met aanmelden</div>
+        <form>
+            <div class="form-group">
+                <label for="username">Gebruikersnaam</label>
+                <input id="username" name="username" [(ngModel)]="username" type="text" autocomplete="off" class="form-control" placeholder="Gebruikersnaam" [disabled]="busy">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Wachtwoord</label>
+                <input id="password" name="password" [(ngModel)]="password" type="password" class="form-control" placeholder="Wachtwoord" [disabled]="busy">
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="busy">Aanmelden</button>
+            <button type="reset" class="btn btn-primary" (click)="reset()" [disabled]="busy">Wissen</button>
+        </form>
+    </div>
+
+    <div class="jumbotron">
+        <h2>Registreren (of wachtwoord vergeten)</h2>
+        <p>Om gebruik te kunnen maken van deze site moet je jezelf eenmalig registreren via de raidbot. Doe hiervoor hetvolgende:</p>
+        <ol>
+            <li>Open in je Telegram client een chat sessie met <a href="http://t.me/Pogo033RaidBot">@Pogo033RaidBot</a>.</li>
+            <li>Stuur het commando <em>/registreer</em> naar de bot.</li>
+            <li>De bot stuurt je nu een privé bericht met je nieuwe aanmeldgegevens.</li>
+        </ol>
+        <p>Mocht je onverhoopt je aanmeldgegevens kwijt zijn, dan kan je nogmaals op dezelfde manier registreren. De bot zal je dan nieuwe aanmeldgegevens opsturen.</p>
+        <a class="btn btn-primary btn-lg" href="http://t.me/Pogo033RaidBot">Start chat</a>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+    <a class="navbar-brand" href="/raids"><div class="navbar-brand-logo"></div></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userLoader.data$ | async as userLoaderResult; else loading">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" routerLink="/misc/login" routerLinkActive="active" *ngIf="userLoaderResult.errorCode == 401"><span class="fa fa-sign-in"></span>Aanmelden</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/raids" routerLinkActive="active"><span class="fa fa-database"></span> Raids</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/users" routerLinkActive="active" *ngIf="userLoaderResult.data?.isAdministrator"><span class="fa fa-users"></span> Gebruikersbeheer</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/misc/settings" routerLinkActive="active" *ngIf="!userLoaderResult.isError"><span class="fa fa-gears"></span> {{userLoaderResult.data?.user.UserName}}</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="logout()" *ngIf="!userLoaderResult.isError"><span class="fa fa-sign-out"></span> Afmelden</a></li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<ng-template #loading>
+    <div class="debug-info"><p><span class="fa fa-spin fa-spinner"></span></p></div>
+</ng-template>

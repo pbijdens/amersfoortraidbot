@@ -1,0 +1,174 @@
+<div class="container bots-raids-container">
+    <h3>Raids</h3>
+    <div *ngIf="this.actionResult?.isError" class="alert alert-danger">
+        Operation failed with code {{actionResult.errorCode}} and message {{actionResult.errorMessage}}.
+        <pre>{{actionResult.errorDetails}}</pre>
+    </div>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar">
+        <div class="btn-group" role="group" aria-label="Acties">
+            <button type="button" class="btn btn-primary" (click)="refresh()"><span class="fa fa-refresh"></span> Refresh</button>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend" (click)="search()">
+                <div class="input-group-text" id="toolbarSearchGroup"><span class="fa fa-search"></span></div>
+            </div>
+            <input type="text" class="form-control" placeholder="Zoek" aria-label="Zoek" aria-describedby="toolbarSearchGroup" name="query" [(ngModel)]="query">
+        </div>
+    </div>
+    <div *ngIf="dataLoader.data$ | async as loadResult; else loadingData">
+        <div *ngIf="loadResult.data?.length > 0; else nodata">
+            <div class="row raid-row-collapsible-header-row">
+                <div class="col-sm-2">When</div>
+                <div class="col-sm-1">Pa#</div>
+                <div class="col-sm-1">Pu?</div>
+                <div class="col-sm-2">Message</div>
+                <div class="col-sm-3">Raid</div>
+                <div class="col-sm-3">Gym</div>
+            </div>
+            <div class="raid-row-collapsible" *ngFor="let row of data">
+                <div class="raid-row-collapsible-row row" data-toggle="collapse" [attr.data-target]="'#dt' + row.PublicID" aria-expanded="false" [attr.aria-controls]="'#dt' + row.PublicID">
+                    <div class="col-sm-2">{{row.Raid?.RaidUnlockTime | isoDateAsLocalDateTime}}</div>
+                    <div class="col-sm-1">{{row.NumberOfParticipants}}</div>
+                    <div class="col-sm-1"><span *ngIf="row.IsPublished" class="fa fa-check-circle"></span></div>
+                    <div class="col-sm-2">{{row.Raid.TelegramMessageID}}</div>
+                    <div class="col-sm-3">{{row.Raid.Raid}}</div>
+                    <div class="col-sm-3">{{row.Raid.Gym}}</div>
+                </div>
+                <div [attr.id]="'dt' + row.PublicID" class="raid-row-collapsible-data collapse">
+                    <div class="row data-row"><div class="col-sm-4 label">UniqueID</div><div class="col-sm-8">{{row.UniqueID}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">PublicID</div><div class="col-sm-8">{{row.PublicID}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.UniqueID</div><div class="col-sm-8">{{row.Raid?.UniqueID}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.User.ID</div><div class="col-sm-8">{{row.Raid?.User.ID}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.User.Username</div><div class="col-sm-8">{{row.Raid?.User.Username}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.User.FirstName</div><div class="col-sm-8">{{row.Raid?.User.FirstName}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.User.Lastname</div><div class="col-sm-8">{{row.Raid?.User.LastName}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Location</div><div class="col-sm-8">{{row.Raid?.Location?.Latitude}},{{row.Raid?.Location?.Longitude}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Address</div><div class="col-sm-8">{{row.Raid?.Address}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Raid</div><div class="col-sm-8">{{row.Raid?.Raid}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Gym</div><div class="col-sm-8">{{row.Raid?.Gym}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Alignment</div><div class="col-sm-8">{{row.Raid?.Alignment}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.RaidUnlockTime</div><div class="col-sm-8">{{row.Raid?.RaidUnlockTime | isoDateAsLocalDateTime}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.RaidEndTime</div><div class="col-sm-8">{{row.Raid?.RaidEndTime | isoDateAsLocalDateTime}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.UpdateCount</div><div class="col-sm-8">{{row.Raid?.UpdateCount}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.Remarks</div><div class="col-sm-8">{{row.Raid?.Remarks}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">Raid.TelegramMessageID</div><div class="col-sm-8">{{row.Raid?.TelegramMessageID}}</div></div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Raid.Sources</div><div class="col-sm-8">
+                            <ol>
+                                <li *ngFor="let x of row.Raid?.Sources">
+                                    SourceID: {{x.SourceID}}<br />
+                                    ExternalID: {{x.ExternalID}}<br />
+                                    URL: {{x.URL}}<br />
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Raid.Publications</div><div class="col-sm-8">
+                            <ol>
+                                <li *ngFor="let x of row.Raid?.Publications">
+                                    ChannelID: {{x.ChannelID}}<br />
+                                    TelegramMessageID: {{x.TelegramMessageID}}<br />
+                                    LastModificationTimeUTC: {{x.LastModificationTimeUTC}}<br />
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row data-row"><div class="col-sm-4 label">IsPublished</div><div class="col-sm-8">{{row.IsPublished}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">LastRefresh</div><div class="col-sm-8">{{row.LastRefresh}}</div></div>
+                    <div class="row data-row"><div class="col-sm-4 label">LastModificationTime</div><div class="col-sm-8">{{row.LastModificationTime}}</div></div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Participants</div><div class="col-sm-8">
+                            <ol>
+                                <li>
+                                    Unknown:<br />
+                                    <ol>
+                                        <li *ngFor="let x of row.Participants?.Unknown">
+                                            User: {{x.User.ID}}: @{{x.User.Username}} ({{x.User.FirstName}} {{x.User.LastName}})<br />
+                                            When: {{x.UtcWhen | isoDateAsLocalDateTime}}<br />
+                                            Arrived: {{x.UtcArrived | isoDateAsLocalDateTime}}<br />
+                                            Extra: +{{x.Extra}}<br />
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Instinct:<br />
+                                    <ol>
+                                        <li *ngFor="let x of row.Participants?.Instinct">
+                                            User: {{x.User.ID}}: @{{x.User.Username}} ({{x.User.FirstName}} {{x.User.LastName}})<br />
+                                            When: {{x.UtcWhen | isoDateAsLocalDateTime}}<br />
+                                            Arrived: {{x.UtcArrived | isoDateAsLocalDateTime}}<br />
+                                            Extra: +{{x.Extra}}<br />
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Mystic:<br />
+                                    <ol>
+                                        <li *ngFor="let x of row.Participants?.Mystic">
+                                            User: {{x.User.ID}}: @{{x.User.Username}} ({{x.User.FirstName}} {{x.User.LastName}})<br />
+                                            When: {{x.UtcWhen | isoDateAsLocalDateTime}}<br />
+                                            Arrived: {{x.UtcArrived | isoDateAsLocalDateTime}}<br />
+                                            Extra: +{{x.Extra}}<br />
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    Valor:<br />
+                                    <ol>
+                                        <li *ngFor="let x of row.Participants?.Valor">
+                                            User: {{x.User.ID}}: @{{x.User.Username}} ({{x.User.FirstName}} {{x.User.LastName}})<br />
+                                            When: {{x.UtcWhen | isoDateAsLocalDateTime}}<br />
+                                            Arrived: {{x.UtcArrived | isoDateAsLocalDateTime}}<br />
+                                            Extra: +{{x.Extra}}<br />
+                                        </li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Rejected</div><div class="col-sm-8">
+                            <ol>
+                                <li *ngFor="let x of row.Rejected">User: {{x.ID}}: @{{x.Username}} ({{x.FirstName}} {{x.LastName}})<br /></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Done</div><div class="col-sm-8">
+                            <ol>
+                                <li *ngFor="let x of row.Done">User: {{x.ID}}: @{{x.Username}} ({{x.FirstName}} {{x.LastName}})<br /></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row data-row">
+                        <div class="col-sm-4 label">Maybe</div><div class="col-sm-8">
+                            <ol>
+                                <li *ngFor="let x of row.Maybe">User: {{x.ID}}: @{{x.Username}} ({{x.FirstName}} {{x.LastName}})<br /></li>
+
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="loadMore()"><span class="fa fa-ellipsis-h"></span> Load more</button>
+
+        </div>
+
+        <ng-template #nodata>
+            <load-error *ngIf="loadResult?.isError" [loaderResult]="loadResult"></load-error>
+            <div *ngIf="!loadResult?.isError" class="alert alert-info" role="alert">No data.</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingData>
+    <div *ngIf="dataLoader.error$ | async as error; else loading">
+        <div class="alert alert-warning" role="alert">An unexpected error occurred, see logs for details.</div>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p><span class="fa fa-spin fa-spinner"></span></p>
+</ng-template>

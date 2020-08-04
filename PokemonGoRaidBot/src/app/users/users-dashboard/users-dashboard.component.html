@@ -1,0 +1,59 @@
+<div class="container users-dashboard-container">
+    <h3>Gebruikers</h3>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar">
+        <div class="btn-group" role="group" aria-label="Acties">
+            <button type="button" class="btn btn-primary" routerLink="/users/new"><span class="fa fa-plus"></span> Nieuwe gebruiker</button>
+            <button type="button" class="btn btn-primary" (click)="refresh()"><span class="fa fa-refresh"></span> Verversen</button>
+            <button type="button" class="btn btn-primary" (click)="toggleIncludeDeletedItems()"><span class="fa fa-check-square-o" *ngIf="includeDeletedItems"></span><span class="fa fa-square-o" *ngIf="!includeDeletedItems">&nbsp;</span>&nbsp;Toon verwijderde gebruikers</button>
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend" (click)="refresh()">
+                <div class="input-group-text" id="toolbarSearchGroup"><span class="fa fa-search"></span></div>
+            </div>
+            <input type="text" class="form-control" placeholder="Zoek" aria-label="Zoek" aria-describedby="toolbarSearchGroup" name="query" [(ngModel)]="query">
+        </div>
+    </div>
+    <div *ngIf="usersLoader.data$ | async as users; else loadingUsers">
+        <div *ngIf="users.data?.length > 0; else nodata">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">&nbsp;</th>
+                        <th scope="col">Gebruikersnaam</th>
+                        <th scope="col">Naam</th>
+                        <th scope="col">EMail</th>
+                        <th scope="col">Verwijderd</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users.data" (click)="openUser(user)" class="table-users-row">
+                        <td><ng-container *ngIf="user.ProfilePictureBase64?.length > 0"><img class="row-image" src="data:image/png;base64,{{user.ProfilePictureBase64}}" /></ng-container></td>
+                        <td>{{user.UserName}}</td>
+                        <td>{{user.DisplayName}}</td>
+                        <td>{{user.Email}}</td>
+                        <td>{{user.LockoutEnabled ? 'Ja' : 'Nee'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #nodata>
+            <div *ngIf="users?.isError" [ngSwitch]="users?.errorCode">
+                <div *ngSwitchCase="401" class="alert alert-warning" role="alert">Klik <a href="#" routerLink="/misc/login">hier</a> om je aan te melden.</div>
+                <div *ngSwitchCase="403" class="alert alert-warning" role="alert">Je hebt onvoldoende rechten om deze gegevens te raadplegen.</div>
+                <div *ngSwitchCase="501" class="alert alert-warning" role="alert">Er is een interne fout opgetreden waardoor het laden van deze gegevens is mislukt: <br /><pre>{{users.errorMessage}}</pre></div>
+                <div *ngSwitchDefault class="alert alert-warning" role="alert">De gegevens konden niet worden geladen:<br /><pre>{{users.errorMessage}}</pre></div>
+            </div>
+            <div *ngIf="!users?.isError" class="alert alert-info" role="alert">Er zijn nog geen gebruikers.</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingUsers>
+    <div *ngIf="usersLoader.error$ | async as error; else loading">
+        <div class="alert alert-warning" role="alert">Er is een onverwachte fout opgetereden bij het laden. Kijk in het logboek voor meer informatie.</div>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p><span class="fa fa-spin fa-spinner"></span></p>
+</ng-template>

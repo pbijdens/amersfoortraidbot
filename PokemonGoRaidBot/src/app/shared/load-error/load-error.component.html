@@ -1,0 +1,8 @@
+<div [ngSwitch]="loaderResult?.errorCode">
+    <div *ngSwitchCase="401" class="alert alert-warning" role="alert">Je bent nog niet aangemeld. Klik <a href="#" routerLink="/misc/login">hier</a> om je aan te melden en probeer het nogmaals.</div>
+    <div *ngSwitchCase="403" class="alert alert-warning" role="alert">Je hebt onvoldoende rechten om deze gegevens te raadplegen.</div>
+    <div *ngSwitchCase="404" class="alert alert-warning" role="alert">De opgevraagde gegevensbron kon niet gevonden worden.</div>
+    <div *ngSwitchCase="500" class="alert alert-warning" role="alert">Er is een interne fout opgetreden waardoor het laden van deze gegevens is mislukt: <br /><pre>{{loaderResult?.errorMessage}}</pre></div>
+    <div *ngSwitchCase="501" class="alert alert-warning" role="alert">Er is een interne fout opgetreden waardoor het laden van deze gegevens is mislukt: <br /><pre>{{loaderResult?.errorMessage}}</pre></div>
+    <div *ngSwitchDefault class="alert alert-warning" role="alert">De gegevens konden niet worden geladen:<br /><pre>{{loaderResult?.errorMessage}}</pre></div>
+</div>

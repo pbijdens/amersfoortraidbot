@@ -1,0 +1,24 @@
+{
+  "xliffmergeOptions": {
+    "srcDir": "src/resources/i18n",
+    "genDir": "src/resources/i18n",
+    "i18nFile": "messages.xlf",
+    "i18nBaseFile": "messages",
+    "i18nFormat": "xlf",
+    "encoding": "UTF-8",
+    "defaultLanguage": "nl-NL",
+    "languages": [ "en-US", "nl-NL" ],
+    "removeUnusedIds": true,
+    "supportNgxTranslate": false,
+    "ngxTranslateExtractionPattern": "@@|ngx-translate",
+    "useSourceAsTarget": true,
+    "targetPraefix": "",
+    "targetSuffix": "",
+    "allowIdChange": false,
+    "autotranslate": false,
+    "apikey": "",
+    "apikeyfile": "",
+    "verbose": false,
+    "quiet": false
+  }
+}

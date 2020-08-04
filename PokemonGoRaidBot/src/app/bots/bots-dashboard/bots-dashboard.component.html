@@ -1,0 +1,51 @@
+<div class="container bots-dashboard-container">
+    <h3>Bots</h3>
+    <div *ngIf="this.actionResult?.isError" class="alert alert-danger">
+        Operation failed with code {{actionResult.errorCode}} and message {{actionResult.errorMessage}}.
+        <pre>{{actionResult.errorDetails}}</pre>
+    </div>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar">
+        <div class="btn-group" role="group" aria-label="Acties">
+            <button type="button" class="btn btn-primary" (click)="refresh()"><span class="fa fa-refresh"></span> Refresh</button>
+        </div>
+    </div>
+    <div *ngIf="dataLoader.data$ | async as loadResult; else loadingData">
+        <div *ngIf="loadResult.data?.length > 0; else nodata">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Running</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let row of loadResult.data">
+                        <td>{{row.Name}}</td>
+                        <td>{{row.IsStarted}}</td>
+                        <td>
+                            <button *ngIf="!row.IsStarted" type="button" class="btn btn-primary" (click)="start(row)"><span class="fa fa-play"></span> Start</button>
+                            <button *ngIf="row.IsStarted" type="button" class="btn btn-primary" (click)="stop(row)"><span class="fa fa-stop"></span> Stop</button>
+                            <button type="button" class="btn btn-primary" [routerLink]="[ '/bots', row.Id, 'raids']"><span class="fa fa-automobile"></span> Raids</button>
+                            <button type="button" class="btn btn-primary" [routerLink]="[ '/bots', row.Id, 'users']"><span class="fa fa-users"></span> Players</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #nodata>
+            <load-error *ngIf="loadResult?.isError" [loaderResult]="loadResult"></load-error>
+            <div *ngIf="!loadResult?.isError" class="alert alert-info" role="alert">No data.</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingData>
+    <div *ngIf="dataLoader.error$ | async as error; else loading">
+        <div class="alert alert-warning" role="alert">An unexpected error occurred, see logs for details.</div>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p><span class="fa fa-spin fa-spinner"></span></p>
+</ng-template>

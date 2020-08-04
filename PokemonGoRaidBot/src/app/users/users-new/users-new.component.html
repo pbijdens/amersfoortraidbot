@@ -1,0 +1,75 @@
+<div class="container users-new-container">
+    <h1>Nieuwe gebruiker</h1>
+
+    <div *ngIf="createReturned && !(validationErrors?.length) && !(identityErrors?.length)" class="alert alert-primary" role="alert">Gebruiker is aangemaakt. Klik <a [routerLink]="newUserLink">hier</a> om de gebruiker te bekijken.</div>
+
+    <div *ngIf="validationErrors?.length > 0">
+        <div class="alert alert-danger" role="alert" *ngFor="let error of validationErrors">
+            <div [ngSwitch]="error">
+                <div *ngSwitchCase="'INTERNAL_ERROR'">Er is een interne fout opgetreden. Ververs de pagina en probeer het opnieuw.</div>
+                <div *ngSwitchCase="'EMAIL_INVALID'">Een geldig e-mail adres is verplicht.</div>
+                <div *ngSwitchCase="'ID_INVALID'">Er is een interne fout opgetreden. Ververs de pagina en probeer het opnieuw.</div>
+                <div *ngSwitchCase="'USERNAME_INVALID'">Een geldige gebruikersnaam is verplicht.</div>
+                <div *ngSwitchCase="'PASSWORDS_DO_NOT_MATCH'">De wachtwoorden komen niet overeen.</div>
+                <div *ngSwitchCase="'NAME_INVALID'">Naam is een verplicht veld.</div>
+                <div *ngSwitchCase="'USERNAME_UNAVAILABLE'">Er bestaat al een gebruiker met deze gebruikersnaam.</div>
+                <div *ngSwitchCase="'EMAIL_UNAVAILABLE'">Er bestaat al een gebruiker met dit e-mail adres.</div>
+                <div *ngSwitchCase="'ADMIN_ROLE_CHANGE_FOR_SELF'">Je kan jezelf de administratieve rechten niet afnemen.</div>
+                <div *ngSwitchCase="'PASSWORD_EMPTY'">Het wachtwoord mag niet leeg zijn.</div>
+                <div *ngSwitchDefault>Er is een fout opgetreden: {{error}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="identityErrors?.length > 0">
+        <div class="alert alert-danger" role="alert" *ngFor="let error of identityErrors">
+            {{error.Code}}: {{error.Description}}
+        </div>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <label for="formID">ID</label>
+            <input name="formID" [(ngModel)]="data.Id" readonly type="text" class="form-control" id="formID" placeholder="ID">
+        </div>
+
+        <div class="form-group">
+            <label for="formUserName">Login naam</label>
+            <input name="formuserName" [(ngModel)]="data.UserName" type="text" class="form-control" id="formUserName" placeholder="Gebruikersnaam">
+        </div>
+
+        <div class="form-group">
+            <label for="formEmail">Email adres</label>
+            <input name="formEmail" [(ngModel)]="data.Email" type="email" class="form-control" id="formEmail" placeholder="Email adres">
+        </div>
+
+        <div class="form-group">
+            <label for="formPassword">Wachtwoord</label>
+            <input name="formPassword" [(ngModel)]="data.Password" type="password" class="form-control" id="formPassword" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label for="formPassword2">Herhaal wachtwoord</label>
+            <input name="formConfirmPassword" [(ngModel)]="confirmPassword" type="password" class="form-control" id="formPassword2" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label for="formRealName">Naam</label>
+            <input name="formRealName" [(ngModel)]="data.DisplayName" type="text" class="form-control" id="formRealName" placeholder="Naam">
+        </div>
+
+        <div class="form-group">
+            <label for="ppBase64">Profile picture base64</label>
+            <textarea name="formPPBase64" [(ngModel)]="data.ProfilePictureBase64" class="form-control" id="ppBase64" rows="3"></textarea>
+        </div>
+
+        <div class="form-group form-check">
+            <input name="formCheck1" [(ngModel)]="data.IsAdministrator" type="checkbox" class="form-check-input" id="checkIsAdministrator">
+            <label class="form-check-label" for="checkIsAdministrator">Beheerder</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="save(data)">Opslaan</button>
+        <button type="reset" class="btn btn-primary" (click)="reset()">Reset</button>
+    </form>
+</div>
+

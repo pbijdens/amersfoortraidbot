@@ -1,0 +1,67 @@
+<div class="container raids-raid-container">
+    <div *ngIf="dataLoader.data$ | async as loadResult; else loadingData">
+        <div *ngIf="loadResult.data; else nodata">
+            <div class="table">
+                <div class="row">
+                    <div class="col-sm-12 label">Tijd</div>
+                    <div class="col-sm-12">{{loadResult.data.Raid.RaidUnlockTime | isoDateAsRaidDateTime}} - {{loadResult.data.Raid.RaidEndTime | isoDateAsRaidDateTime}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 label">Raid</div>
+                    <div class="col-sm-12">{{loadResult.data.Raid.Raid}}</div>
+                    <div class="col-sm-12">{{loadResult.data.Raid.Gym}}</div>
+                    <div class="col-sm-12" *ngIf="loadResult.data.Raid.Address">{{loadResult.data.Raid.Address}}</div>
+                    <div class="col-sm-12"><a href="https://www.google.com/maps/?daddr={{loadResult.data.Raid.Location.Latitude}},{{loadResult.data.Raid.Location.Longitude}}" target="_blank">maps.google.com</a>, <a href="http://pogoafo.nl/#{{loadResult.data.Raid.Location.Latitude}},{{loadResult.data.Raid.Location.Longitude}}" target="_blank">pogoafo.nl</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 label">Inschrijvingen ({{total}})</div>
+                    <div class="col-sm-12" *ngIf="total > 0">
+                        <ol>
+                            <li *ngFor="let p of loadResult.data.Participants.Instinct"><span class="instinct"></span> {{p.User.Username}} <span *ngIf="p.UtcWhen && p.UtcWhen !== '0001-01-01T00:00:00'">[{{p.UtcWhen | isoDateAsRaidDateTime}}]</span> <span *ngIf="p.UtcArrived && p.UtcArrived !== '0001-01-01T00:00:00'">(is er sinds {{p.UtcArrived | isoDateAsRaidDateTime}})</span> <span *ngIf="p.Extra > 0">+{{p.Extra}}</span></li>
+                            <li *ngFor="let p of loadResult.data.Participants.Mystic"><span class="mystic"></span> {{p.User.Username}} <span *ngIf="p.UtcWhen && p.UtcWhen !== '0001-01-01T00:00:00'">[{{p.UtcWhen | isoDateAsRaidDateTime}}]</span> <span *ngIf="p.UtcArrived && p.UtcArrived !== '0001-01-01T00:00:00'">(is er sinds {{p.UtcArrived | isoDateAsRaidDateTime}})</span> <span *ngIf="p.Extra > 0">+{{p.Extra}}</span></li>
+                            <li *ngFor="let p of loadResult.data.Participants.Valor"><span class="valor"></span> {{p.User.Username}} <span *ngIf="p.UtcWhen && p.UtcWhen !== '0001-01-01T00:00:00'">[{{p.UtcWhen | isoDateAsRaidDateTime}}]</span> <span *ngIf="p.UtcArrived && p.UtcArrived !== '0001-01-01T00:00:00'">(is er sinds {{p.UtcArrived | isoDateAsRaidDateTime}})</span> <span *ngIf="p.Extra > 0">+{{p.Extra}}</span></li>
+                            <li *ngFor="let p of loadResult.data.Participants.Unknown"><span class="unknown"></span> {{p.User.Username}} <span *ngIf="p.UtcWhen && p.UtcWhen !== '0001-01-01T00:00:00'">[{{p.UtcWhen | isoDateAsRaidDateTime}}]</span> <span *ngIf="p.UtcArrived && p.UtcArrived !== '0001-01-01T00:00:00'">(is er sinds {{p.UtcArrived | isoDateAsRaidDateTime}})</span> <span *ngIf="p.Extra > 0">+{{p.Extra}}</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row" *ngIf="loadResult.data.Maybe && loadResult.data.Maybe.length > 0">
+                    <div class="col-sm-12 label">Misschien ({{loadResult.data.Maybe.length}})</div>
+                    <div class="col-sm-12">{{loadResult.data.Maybe | commaSeparatedListOfNames}}</div>
+                </div>
+                <div class="row" *ngIf="loadResult.data.Rejected && loadResult.data.Rejected.length > 0">
+                    <div class="col-sm-12 label">Afmeldingen ({{loadResult.data.Rejected.length}})</div>
+                    <div class="col-sm-12">{{loadResult.data.Rejected | commaSeparatedListOfNames}}</div>
+                </div>
+                <div class="row" *ngIf="loadResult.data.Done && loadResult.data.Done.length > 0">
+                    <div class="col-sm-12 label">Al gedaan ({{loadResult.data.Done.length}})</div>
+                    <div class="col-sm-12">{{loadResult.data.Done | commaSeparatedListOfNames}}</div>
+                </div>
+            </div>
+
+            <div class="table table-responsive-sm buttons">
+                <div class="flex-row">
+                    <div class="col-sm-12 label">Aantal</div>
+                    <a *ngFor="let x of [0,1,2,3,4,5,6,7]" class="btn btn-tiny col-sm-1 flex-sm-column" (click)="extra=x" [ngClass]="{ 'btn-primary': extra==x, 'btn-secondary': extra!=x}">{{x+1}}</a>
+                </div>
+                <div class="flex-row">
+                    <div class="col-sm-12 label">Inschrijven</div>
+                    <a class="btn btn-normal btn-secondary flex-sm-column" (click)="join()">Ja!</a><a *ngFor="let time of times" class="btn btn-normal btn-secondary flex-sm-column" (click)="join(time)">{{time | isoDateAsRaidDateTime}}</a><a class="btn btn-normal btn-secondary flex-sm-column" (click)="maybe()">Misschien</a><a class="btn btn-normal btn-secondary flex-sm-column" (click)="done()">Gedaan</a><a class="btn btn-normal btn-secondary flex-sm-column" (click)="no()">Nee</a>
+                </div>
+            </div>
+        </div>
+        <ng-template #nodata>
+            <load-error *ngIf="loadResult?.isError" [loaderResult]="loadResult"></load-error>
+            <div *ngIf="!loadResult?.isError" class="alert alert-danger" role="alert">Ophalen van deze gegevens is niet gelukt. Probeer het nog eens..</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingData>
+    <div *ngIf="dataLoader.error$ | async as error; else loading">
+        <div class="alert alert-warning" role="alert">Er is een onverwachte fout opgetreden. Probeer het nog eens.</div>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p><span class="fa fa-spin fa-spinner"></span></p>
+</ng-template>

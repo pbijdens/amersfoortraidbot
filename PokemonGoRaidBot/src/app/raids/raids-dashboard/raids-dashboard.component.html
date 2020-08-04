@@ -1,0 +1,29 @@
+<div class="container raids-dashboard-container">
+    <div *ngIf="this.actionResult?.isError" class="alert alert-danger">
+        Operation failed with code {{actionResult.errorCode}} and message {{actionResult.errorMessage}}.
+        <pre>{{actionResult.errorDetails}}</pre>
+    </div>
+    <div *ngIf="dataLoader.data$ | async as loadResult; else loadingData">
+        <div *ngIf="loadResult.data?.length > 0; else nodata">
+            <table class="table table-striped raids-table">
+                <tr class="row" *ngFor="let row of loadResult.data" (click)="goto(row)">
+                    <td style="cursor: pointer">{{row.RaidUnlockTime | isoDateAsRaidDateTime}}-{{row.RaidEndTime | isoDateAsRaidDateTime}} ({{row.Total}}) {{row.Raid}} bij {{row.Gym}}</td>
+                </tr>
+            </table>
+        </div>
+        <ng-template #nodata>
+            <load-error *ngIf="loadResult?.isError" [loaderResult]="loadResult"></load-error>
+            <div *ngIf="!loadResult?.isError" class="alert alert-info" role="alert">Er zijn op dit moment geen actieve raids. Probeer het later nog eens.</div>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #loadingData>
+    <div *ngIf="dataLoader.error$ | async as error; else loading">
+        <div class="alert alert-warning" role="alert">An unexpected error occurred, see logs for details.</div>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p><span class="fa fa-spin fa-spinner"></span></p>
+</ng-template>
