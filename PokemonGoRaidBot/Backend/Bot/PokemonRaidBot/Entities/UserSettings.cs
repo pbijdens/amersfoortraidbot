@@ -1,5 +1,6 @@
 using Botje.DB;
 using Botje.Messaging.Models;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 using System;
 using System.Linq;
 

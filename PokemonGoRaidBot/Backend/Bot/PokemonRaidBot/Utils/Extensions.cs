@@ -1,4 +1,5 @@
 using RaidBot.Backend.Bot.PokemonRaidBot.Entities;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 
 namespace RaidBot.Backend.Bot.PokemonRaidBot.RaidBot.Utils
 {
