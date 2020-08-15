@@ -2,7 +2,7 @@ name: AmersfoortRaidBot CI
 
 on:
   push:
-    branches: [ master, topic/2-setup-ci-build ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
