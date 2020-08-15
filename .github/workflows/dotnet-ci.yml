@@ -1,0 +1,35 @@
+name: AmersfoortRaidBot CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'      
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1.21
+    - name: NPM Install
+      run: npm install
+      working-directory: PokemonGoRaidBot
+    - name: NPM AOT build (NL)
+      run: npm run build:aot
+      working-directory: PokemonGoRaidBot
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
