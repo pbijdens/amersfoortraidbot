@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 21:16+0200\n"
+"POT-Creation-Date: 2020-08-13 22:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,23 +65,23 @@ msgid ""
 "expression?): {1}"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:94
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:95
 msgid "Enter the name of the gym."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:99
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:100
 msgid "Enter the name of the Pokémon."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:103
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:104
 msgid "Specify the current gym's alignment."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:106
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:107
 msgid "Updated the gym alignment."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:113
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:114
 msgid ""
 "Please specify when the raid will take place. If the egg is yet to hatch, "
 "use one of the 🥚 buttons to indicate the amount of time left before the egg "
@@ -89,50 +89,50 @@ msgid ""
 "minutes are left for the raid."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:116
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:130
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:117
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:131
 msgid "Raid time updated."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:123
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:124
 msgid "Select a date for this raid from the list below."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:127
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:128
 msgid "Select a start time."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:136
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:137
 msgid "Cleared."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:141
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:142
 msgid ""
 "The raid was created but not published yet. You can publish or share the "
 "raid with the corresponding buttons in the block."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:145
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:146
 msgid "If you say so."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:151
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:152
 #, csharp-format
 msgid "Your new team is {0}."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:162
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:163
 msgid ""
 "Please specify which Pokémon the raid is for. If unknown, just enter the "
 "level of the raid."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:167
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:168
 msgid "Please specify the name of the gym."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:172
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:406
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:173
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:407
 msgid ""
 "Please specify the gym's location. You can send a location from the telegram "
 "mobile client by pressing the paperclip button and selecting Location. Then "
@@ -140,15 +140,15 @@ msgid ""
 "address information will automatically be added by the bot."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:177
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:178
 msgid "Please specify when the raid will take place."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:218
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:219
 msgid "Pick your team from the list."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:222
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:223
 msgid ""
 "Send a location from the telegram mobile client by pressing the paperclip "
 "button and selecting Location. Then drag the map so the position marker is "
@@ -159,294 +159,302 @@ msgid ""
 "the public channel, or share your raid privately using the share-button."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:393
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:534
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:315
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:468
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:394
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:535
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:316
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:537
 msgid "Raid"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:394
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:539
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:316
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:333
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:395
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:540
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:317
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:334
 msgid "Gym"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:395
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:544
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:317
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:337
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:472
-msgid "Alignment"
-msgstr ""
-
 #: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:396
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:545
 #: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:318
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:476
-msgid "Address"
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:338
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:541
+msgid "Alignment"
 msgstr ""
 
 #: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:397
 #: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:319
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:545
+msgid "Address"
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:398
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:320
 msgid "GPS Location"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:399
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:321
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:400
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:322
 msgid "Available from"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:401
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:323
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:402
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:324
 msgid "Available until"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:465
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:466
 msgid "Other..."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:552
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:338
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:553
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:339
 msgid "Time"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:557
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:558
 msgid "🗑 Reset"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:565
+#: Backend/Bot/PokemonRaidBot/Modules/RaidCreationWizard.cs:566
 msgid "💾 Done"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:93
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:94
 msgid "I expected a location."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:152
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:153
 msgid ""
 "Can't process input. Next time just send me a single line of text in the "
 "form HH:MM where HH is a number between 00 and 23, and MM is a number of "
 "minutes."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:203
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:204
 msgid ""
 "Please send me a location using the attach-button in your messaging client."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:208
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:209
 msgid "Please send me the updated name of the gym."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:213
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:214
 msgid "Please send me the updated name of the Pokémon."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:218
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:219
 msgid "Please send me a line of text to add as remarks to the raid."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:223
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:224
 msgid ""
 "Enter the exact time that the egg with hatch in the form HH:MM using a 24-"
 "hour clock."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:227
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:228
 msgid "Select the new gym alignment from the menu"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:228
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:229
 msgid "Select the new gym alignment from the menu."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:233
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:234
 msgid ""
 "Updated the gym alignment. Manual refresh of the published raid is required."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:234
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:235
 msgid "Thanks. Now please manually refresh the published message."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:250
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:251
 msgid ""
 "Publication of this raid has been undone. You may publish the raid again at "
 "your discretion."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:255
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:256
 msgid "This raid is not published (anymore). You may publish the raid again."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:261
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:157
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:262
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:141
 msgid "Refreshing..."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:324
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:341
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:325
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:342
 msgid "Remarks"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:334
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:335
 msgid "Pokémon"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:342
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:343
 msgid "Location"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:345
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:346
 msgid "Share"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:350
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:351
 msgid "Unpublish"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:356
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:639
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:357
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:736
 msgid "📣 Publish"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:362
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:629
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEditor.cs:363
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:724
 msgid "🔄"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:94
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:95
 #, csharp-format
 msgid "{0} raid at {1} {2}"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:117
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:118
 msgid "Excellent! You arrived."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:124
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:125
 msgid "That's too bad 😞"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:133
-#, csharp-format
-msgid "Joined for team {0}"
-msgstr ""
-
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:138
-msgid "You're on the list now."
-msgstr ""
-
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:151
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:135
 msgid "Publishing the raid."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:166
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:150
 #, csharp-format
 msgid "You will be there at {0}."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:171
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:155
 msgid "Error updating time."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:177
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:161
 msgid "Go to our private chat to edit the raid."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:182
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:188
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:166
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:172
 msgid "Registered. Thanks."
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:450
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:196
+#, csharp-format
+msgid "Joined for team {0}"
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:203
+msgid "You're on the list now."
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:518
 msgid "now"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:491
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:560
 msgid "Links"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:491
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:560
 msgid "route"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:491
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:560
 msgid "portal map"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:501
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:570
 msgid "Declined"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:519
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:561
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:588
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:633
 msgid "level"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:523
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:631
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:592
 msgid "Maybe"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:531
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:632
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:600
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:727
 msgid "Done"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:577
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:647
 #, csharp-format
 msgid "there for {0}"
 msgid_plural "there for {0}"
 msgstr[0] ""
 msgstr[1] ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:613
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:680
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:710
+msgid "👻"
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:706
 msgid "Yes"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:614
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:707
 msgid "❤️"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:615
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:708
 msgid "💙"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:616
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:709
 msgid "💛"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:617
-msgid "No"
-msgstr ""
-
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:621
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:715
 msgid "I +1"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:622
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:716
 msgid "I +2"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:623
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:717
 msgid "I +3"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:624
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:718
 msgid "I +4"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:625
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:719
 msgid "I +5"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:630
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:725
 msgid "✏️"
 msgstr ""
 
-#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:656
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:726
+msgid "🤷🏼"
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:728
+msgid "Cancel"
+msgstr ""
+
+#: Backend/Bot/PokemonRaidBot/Modules/RaidEventHandler.cs:753
 msgid "Arrived"
 msgstr ""
 

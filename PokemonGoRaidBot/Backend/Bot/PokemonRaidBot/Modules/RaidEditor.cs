@@ -8,6 +8,7 @@ using Botje.Messaging.PrivateConversation;
 using NGettext;
 using Ninject;
 using RaidBot.Backend.Bot.PokemonRaidBot.Entities;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 using RaidBot.Backend.Bot.PokemonRaidBot.LocationAPI;
 using RaidBot.Backend.Bot.PokemonRaidBot.RaidBot.Utils;
 using RaidBot.Backend.Bot.PokemonRaidBot.Utils;

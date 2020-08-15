@@ -2,6 +2,7 @@ using Mapster;
 using Microsoft.AspNetCore.Builder;
 using RaidBot.Backend.API;
 using RaidBot.Backend.Bot.PokemonRaidBot.Entities;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 using System.Collections.Generic;
 using System.Linq;
 

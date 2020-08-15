@@ -5,6 +5,7 @@ using Botje.Messaging.Models;
 using GeoCoordinatePortable;
 using Ninject;
 using RaidBot.Backend.Bot.PokemonRaidBot.Entities;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 using RaidBot.Backend.Bot.PokemonRaidBot.LocationAPI;
 using RaidBot.Backend.Bot.PokemonRaidBot.Utils;
 using System;

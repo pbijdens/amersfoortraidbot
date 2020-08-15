@@ -261,10 +261,10 @@ __pycache__/
 *.pyc
 
 appsettings.*.json
-RaidBot/data/*
-RaidBot/wwwroot/dist/*
-RaidBot/wwwroot/dist/*/*
-RaidBot/wwwroot/dist/*/*/*
-RaidBot/wwwroot/dist/nl-NL
+PokemonGoRaidBot/data/*
+PokemonGoRaidBot/wwwroot/dist/*
+PokemonGoRaidBot/wwwroot/dist/*/*
+PokemonGoRaidBot/wwwroot/dist/*/*/*
+PokemonGoRaidBot/wwwroot/dist/nl-NL
 **/dist/nl-NL/**/*
 [dD]ata/*.json

@@ -8,6 +8,7 @@ using Ninject;
 using RaidBot.Backend.API;
 using RaidBot.Backend.Bot;
 using RaidBot.Backend.Bot.PokemonRaidBot.Entities;
+using RaidBot.Backend.Bot.PokemonRaidBot.Enums;
 using RaidBot.Backend.DB;
 using RaidBot.Filters;
 using System;
